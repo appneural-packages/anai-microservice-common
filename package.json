@@ -1,0 +1,34 @@
+{
+    "name": "anai-microservice-common",
+    "version": "1.0.0",
+    "description": "A shared NestJS common module for multiple microservices",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+      "build": "tsc",
+      "clean": "rm -rf dist",
+      "prepare": "npm run build"
+    },
+    "dependencies": {
+      "@nestjs/common": "^10.0.0",
+      "@nestjs/core": "^10.0.0",
+      "@nestjs/swagger": "^11.0.6"
+    },
+    "devDependencies": {
+      "typescript": "^4.5.5",
+      "@nestjs/cli": "^9.0.0"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/appneural-packages/anai-microservice-common.git"
+    },
+    "keywords": [
+      "nestjs",
+      "common",
+      "shared",
+      "microservices"
+    ],
+    "author": "Ajay Prajapat",
+    "license": "MIT"
+  }
+  
