@@ -1,13 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class Ufeedback extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UfeedbackSchema = SchemaFactory.createForClass(Ufeedback);
+export const FeedbackSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  type: String,
+  message: String,
+  createdAt: { type: Date, default: Date.now },
+});

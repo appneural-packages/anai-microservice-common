@@ -1,13 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UuserUverification extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UuserUverificationSchema = SchemaFactory.createForClass(UuserUverification);
+export const UserVerificationSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  idProofUrl: String,
+  selfieUrl: String,
+  status: { type: String, enum: ['Pending', 'Approved', 'Rejected'], default: 'Pending' },
+  submittedAt: Date,
+  verifiedAt: Date,
+});

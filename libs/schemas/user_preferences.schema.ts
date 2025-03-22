@@ -1,13 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UuserUpreferences extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UuserUpreferencesSchema = SchemaFactory.createForClass(UuserUpreferences);
+export const UserPreferenceSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  preferredGenders: [String],
+  minAge: Number,
+  maxAge: Number,
+  preferredLocation: String,
+  interests: [{ type: Schema.Types.ObjectId, ref: 'InterestMaster' }],
+});

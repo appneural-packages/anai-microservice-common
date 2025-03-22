@@ -1,13 +1,9 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UblockUreport extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UblockUreportSchema = SchemaFactory.createForClass(UblockUreport);
+export const BlockReportSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  reportedUserId: { type: Schema.Types.ObjectId, ref: 'User' },
+  type: String,
+  reason: String,
+  createdAt: { type: Date, default: Date.now },
+});

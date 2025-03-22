@@ -1,13 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class Umessages extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UmessagesSchema = SchemaFactory.createForClass(Umessages);
+export const MessageSchema = new Schema({
+  chatId: { type: Schema.Types.ObjectId, ref: 'Chat' },
+  senderId: { type: Schema.Types.ObjectId, ref: 'User' },
+  message: String,
+  sentAt: { type: Date, default: Date.now },
+});

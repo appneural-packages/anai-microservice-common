@@ -1,13 +1,6 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UappUsettingUmaster extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UappUsettingUmasterSchema = SchemaFactory.createForClass(UappUsettingUmaster);
+export const AppSettingMasterSchema = new Schema({
+  settingName: String,
+  settingValue: String,
+});

@@ -1,13 +1,7 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UuserUsettings extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UuserUsettingsSchema = SchemaFactory.createForClass(UuserUsettings);
+export const UserSettingsSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  notificationsEnabled: Boolean,
+  theme: String,
+});

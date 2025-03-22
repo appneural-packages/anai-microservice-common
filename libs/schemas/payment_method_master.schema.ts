@@ -1,13 +1,6 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UpaymentUmethodUmaster extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UpaymentUmethodUmasterSchema = SchemaFactory.createForClass(UpaymentUmethodUmaster);
+export const PaymentMethodMasterSchema = new Schema({
+  methodName: String,
+  details: String,
+});

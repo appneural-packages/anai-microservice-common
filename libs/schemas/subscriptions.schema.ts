@@ -1,13 +1,9 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class Usubscriptions extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UsubscriptionsSchema = SchemaFactory.createForClass(Usubscriptions);
+export const SubscriptionSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  planId: { type: Schema.Types.ObjectId, ref: 'SubscriptionPlanMaster' },
+  startDate: Date,
+  endDate: Date,
+  status: String,
+});

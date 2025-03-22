@@ -1,13 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UuserUphotos extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UuserUphotosSchema = SchemaFactory.createForClass(UuserUphotos);
+export const UserPhotoSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  photoUrl: String,
+  isProfilePicture: Boolean,
+  createdAt: { type: Date, default: Date.now },
+});

@@ -1,13 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class Unotifications extends Document {
-  @Prop()
-  sampleField: string;
+export const NotificationSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  message: String,
+  type: String,
+  read: { type: Boolean, default: false },
+  createdAt: { type: Date, default: Date.now },
+});
 
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UnotificationsSchema = SchemaFactory.createForClass(Unotifications);

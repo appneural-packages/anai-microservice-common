@@ -1,13 +1,5 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UlifestyleUoptionsUmaster extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UlifestyleUoptionsUmasterSchema = SchemaFactory.createForClass(UlifestyleUoptionsUmaster);
+export const LifestyleOptionMasterSchema = new Schema({
+  name: String,
+});

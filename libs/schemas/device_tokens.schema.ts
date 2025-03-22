@@ -1,13 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class UdeviceUtokens extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UdeviceUtokensSchema = SchemaFactory.createForClass(UdeviceUtokens);
+export const DeviceTokenSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  token: String,
+  platform: String,
+  createdAt: { type: Date, default: Date.now },
+});

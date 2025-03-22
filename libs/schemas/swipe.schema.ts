@@ -1,13 +1,8 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Schema } from 'mongoose';
 
-@Schema()
-export class Uswipe extends Document {
-  @Prop()
-  sampleField: string;
-
-  @Prop({ default: Date.now })
-  createdAt: Date;
-}
-
-export const UswipeSchema = SchemaFactory.createForClass(Uswipe);
+export const SwipeSchema = new Schema({
+  userId: { type: Schema.Types.ObjectId, ref: 'User' },
+  targetUserId: { type: Schema.Types.ObjectId, ref: 'User' },
+  action: String,
+  createdAt: { type: Date, default: Date.now },
+});
