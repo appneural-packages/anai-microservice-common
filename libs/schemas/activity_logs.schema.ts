@@ -1,7 +1,7 @@
-import { Schema } from "@nestjs/mongoose";
+import { Schema, Types } from "mongoose";
 
 export const ActivityLogSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: "User" },
-  activity: String,
+  userId: { type: Types.ObjectId, ref: "User" },
+  activity: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
 });
