@@ -1,6 +1,6 @@
 {
     "name": "anai-microservice-common",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "A shared NestJS common module for multiple microservices",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

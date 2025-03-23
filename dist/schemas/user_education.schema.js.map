@@ -1,1 +1,0 @@
-{"version":3,"file":"user_education.schema.js","sourceRoot":"","sources":["../../libs/schemas/user_education.schema.ts"],"names":[],"mappings":";;;AAAA,uCAAkC;AAErB,QAAA,mBAAmB,GAAG,IAAI,iBAAM,CAAC;IAC5C,MAAM,EAAE,EAAE,IAAI,EAAE,iBAAM,CAAC,KAAK,CAAC,QAAQ,EAAE,GAAG,EAAE,MAAM,EAAE;IACpD,MAAM,EAAE,MAAM;IACd,MAAM,EAAE,MAAM;IACd,SAAS,EAAE,IAAI;IACf,OAAO,EAAE,IAAI;CACd,CAAC,CAAC"}
